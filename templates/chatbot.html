@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos y enlaces a estilos y scripts -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot de Salud Mental | Chat</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Contenedor principal del chat -->
+    <div class="chat-container">
+        <!-- Header del chat -->
+        <div class="chat-header">
+            <img src="{{ url_for('static', filename='img/bot-avatar.png') }}" alt="Bot Avatar" class="bot-avatar">
+            <div class="chat-info">
+                <h2>Asistente de Salud Mental</h2>
+                <p class="status">En línea</p>
+            </div>
+        </div>
+
+        <!-- Área de mensajes -->
+        <div class="chatbox" id="chatbox">
+            <!-- Mensaje de bienvenida -->
+            <div class="message bot-message">
+                <p>¡Hola! Soy tu asistente virtual especializado en salud mental. ¿En qué puedo ayudarte hoy?</p>
+            </div>
+        </div>
+
+        <!-- Área de entrada -->
+        <div class="input-group">
+            <input type="text"
+                   id="message"
+                   class="form-control message-input"
+                   placeholder="Escribe un mensaje o presiona el micrófono para hablar..."
+                   autocomplete="off">
+
+            <button class="action-button voice-button" id="voice">
+                <i class="fas fa-microphone"></i>
+            </button>
+
+            <button class="action-button send-button" id="send">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Indicador de grabación -->
+    <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+        <i class="fas fa-microphone-alt"></i>
+        <span>Grabando...</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
