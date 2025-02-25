@@ -1,9 +1,9 @@
 # Chatbot de Salud Mental - Versión 1.0
 
 <div align="center">
-  <img src="static/img/1.png" alt="Pantalla de Inicio" width="500">
+  <img src="static/img/1.png" alt="Pantalla de Inicio" width="250">
   <br>
-  <em>Página de inicio del Chatbot de Salud Mental</em>
+  <em>Logo del Chatbot de Salud Mental</em>
 </div>
 
 ## Descripción del Proyecto
