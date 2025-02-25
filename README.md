@@ -169,6 +169,9 @@ De esta forma, cada emoción recibe un peso distinto, mitigando el riesgo de que
 - Esta versión (1.0) es experimental y **no** sustituye asesoramiento profesional en salud mental.
 - Se recomienda seguir refinando el modelo, incorporar más emociones y ampliar la base de datos.
 - En caso de emergencia o situación de riesgo, busca ayuda de un profesional de la salud mental.
+- Destacamos la **diferencia** entre la versión original (generaba `.mp3` en el servidor con `pyttsx3`) y la **actual** (Web Speech API en el **navegador**).  
+- Dejamos clara la **arquitectura** y las **tecnologías** usadas.  
+- Resaltamos que ya no se requiere instalar librerías TTS en el contenedor Docker, pues todo se hace en el **cliente**.  
 
 ## Colaboradores
 - **Nicolás Ceballos Brito** (@Nico2603)
