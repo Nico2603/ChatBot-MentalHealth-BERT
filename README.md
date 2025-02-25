@@ -7,17 +7,23 @@
 </div>
 
 ## Descripción del Proyecto
-Este proyecto es un chatbot **orientado a la salud mental** que, mediante **Procesamiento de Lenguaje Natural (PLN)**, analiza los mensajes ingresados por los usuarios (ya sea por **texto** o **audio**) para predecir su estado emocional y generar respuestas de apoyo o contestaciones acordes.
 
-- **Interacción por voz**: El usuario puede hablar (speech-to-text) y recibir la respuesta en audio (text-to-speech).  
-- **Emociones limitadas**: Actualmente detecta 11 emociones básicas, pero se planea mejorar en futuras versiones (2.0).  
-- **Versión 1.0**: Implementación básica y experimental; **no** sustituye asesoramiento profesional.
+**(versión GitHub original)**  
+Este proyecto es un chatbot **orientado a la salud mental** que, mediante **Procesamiento de Lenguaje Natural (PLN)**, analizaba los mensajes ingresados por los usuarios (ya fuera por **texto** o **audio**) para predecir su estado emocional y generar respuestas de apoyo.  
+- **Interacción por voz (server-side)**: El usuario podía hablar, y el servidor generaba un archivo de audio de respuesta usando `pyttsx3`.  
+- **Versión 1.0**: Implementación básica con 11 emociones, experimental y **no** sustituye asesoramiento profesional.
+
+**(versión Hugging Face Spaces)**  
+Actualmente, el chatbot sigue orientado a la salud mental, pero la **conversión de voz** (tanto STT como TTS) se hace **en el navegador** (usando Web Speech API). El servidor solo maneja texto (Flask + BERT).  
+- **Interacción por voz (client-side)**: El usuario habla y el navegador (JavaScript) convierte el audio a texto; el servidor responde en texto, y el navegador usa Speech Synthesis para “hablar” la respuesta.  
+- **No** se generan archivos de audio en el servidor ni se instalan librerías TTS (pyttsx3) o STT (PyAudio).
 
 ## Tecnologías Utilizadas
 - **Python**: Flask (backend web), Transformers, PyTorch  
 - **BERT** (Bidirectional Encoder Representations from Transformers)  
 - **Procesamiento de Lenguaje Natural (PLN)**  
 - **Reconocimiento de Voz** (SpeechRecognition en el navegador)  
+- **Reconocimiento de Voz** y Síntesis de Voz en el Navegador** (Web Speech API)  
 - **Síntesis de Texto a Voz** (pyttsx3/pydub)  
 - **HTML, CSS, JavaScript** (Frontend)
 
