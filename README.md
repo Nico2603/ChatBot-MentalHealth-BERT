@@ -174,9 +174,9 @@ De esta forma, cada emoción recibe un peso distinto, mitigando el riesgo de que
 - Resaltamos que ya no se requiere instalar librerías TTS en el contenedor Docker, pues todo se hace en el **cliente**.  
 
 ## Colaboradores
-- **Nicolás Ceballos Brito** (@Nico2603)
-- **Juan Alejandro Urueña Serna** (@Uruena2603)
-- **Camilo Castañeda Yepes** (@camCy)
+- **Nicolás Ceballos Brito** (@Nico2603) https://github.com/Nico2603
+- **Juan Alejandro Urueña Serna** (@Uruena2603) https://github.com/Uruena2603
+- **Camilo Castañeda Yepes** (@camCy) https://github.com/camCy
 
 Para cualquier duda o sugerencia, contáctame en: **nicolasceballosbrito@gmail.com**
 
