@@ -1,25 +1,43 @@
 # Chatbot de Salud Mental - Versión 1.0
 
-## Descripción del Proyecto
-Este proyecto es un chatbot orientado a la salud mental que, mediante Procesamiento de Lenguaje Natural (PLN), analiza los mensajes ingresados por los usuarios (texto o audio) para predecir su estado emocional y generar respuestas de apoyo o contestaciones acordes.
+<div align="center">
+  <img src="static/img/1.png" alt="Pantalla de Inicio" width="500">
+  <br>
+  <em>Página de inicio del Chatbot de Salud Mental</em>
+</div>
 
-Actualmente, esta versión 1.0 es una implementación básica con un conjunto limitado de emociones y respuestas. Se planea una futura versión 2.0 con mejoras en el reconocimiento y respuesta emocional, siempre considerando la complejidad de tratar temas de salud mental de manera responsable.
+## Descripción del Proyecto
+Este proyecto es un chatbot **orientado a la salud mental** que, mediante **Procesamiento de Lenguaje Natural (PLN)**, analiza los mensajes ingresados por los usuarios (ya sea por **texto** o **audio**) para predecir su estado emocional y generar respuestas de apoyo o contestaciones acordes.
+
+- **Interacción por voz**: El usuario puede hablar (speech-to-text) y recibir la respuesta en audio (text-to-speech).  
+- **Emociones limitadas**: Actualmente detecta 11 emociones básicas, pero se planea mejorar en futuras versiones (2.0).  
+- **Versión 1.0**: Implementación básica y experimental; **no** sustituye asesoramiento profesional.
 
 ## Tecnologías Utilizadas
-- **Python** (Flask, Transformers, PyTorch)
-- **BERT (Bidirectional Encoder Representations from Transformers)**
-- **Procesamiento de Lenguaje Natural (PLN)**
-- **Reconocimiento de Voz y Síntesis de Texto a Voz**
-- **HTML, CSS, JavaScript (Frontend)**
+- **Python**: Flask (backend web), Transformers, PyTorch  
+- **BERT** (Bidirectional Encoder Representations from Transformers)  
+- **Procesamiento de Lenguaje Natural (PLN)**  
+- **Reconocimiento de Voz** (SpeechRecognition en el navegador)  
+- **Síntesis de Texto a Voz** (pyttsx3/pydub)  
+- **HTML, CSS, JavaScript** (Frontend)
 
 ## Arquitectura del Chatbot
-El chatbot sigue el siguiente pipeline de procesamiento:
+
+El pipeline principal que sigue este proyecto es:
+
+```text
+ -> Speech Recognition -> Natural Language Understanding -> Dialog Manager <-> Task Manager
+    Text-to-Speech Synthesis <- Natural Language Generation <- Dialog Manager
 ```
--> Speech Recognition -> Natural Language Understanding -> Dialog Manager <-> Task Manager
-Text-to-Speech Synthesis <- Natural Language Generation <- Dialog Manager
-```
-### Emociones Detectadas
-El modelo ha sido entrenado para reconocer las siguientes emociones:
+
+1. **Speech Recognition**: El usuario habla y el navegador convierte el audio a texto (Web Speech API).  
+2. **Natural Language Understanding**: El texto se envía a Flask, donde BERT analiza la emoción.  
+3. **Dialog Manager**: Gestiona la lógica de la conversación y decide la respuesta.  
+4. **Text-to-Speech Synthesis**: El chatbot genera un archivo de audio que se devuelve al navegador.  
+
+## Emociones Detectadas
+El modelo (fine-tuned en BERT) reconoce las siguientes emociones:
+
 - FELICIDAD
 - NEUTRAL
 - DEPRESIÓN
@@ -32,49 +50,59 @@ El modelo ha sido entrenado para reconocer las siguientes emociones:
 - SORPRESA
 - DISGUSTO
 
-Se ha utilizado un dataset de 500 muestras para cada una de estas emociones.
+Se utilizó un dataset de ~500 muestras para cada emoción (total ~5500 filas).
+
+Capturas de Pantalla
+Página de Inicio
+<div align="center"> <img src="static/img/index.png" alt="Página de Inicio" width="500"> <br> <em>Página de inicio del Chatbot de Salud Mental</em> </div>
+Interfaz del Chatbot
+<div align="center"> <img src="static/img/chatbot1.png" alt="Interfaz del Chatbot" width="500"> <br> <em>Interfaz del Chatbot</em> </div>
+Reconocimiento de Voz Activado
+<div align="center"> <img src="static/img/chatbot2.png" alt="Reconocimiento de Voz Activado" width="500"> <br> <em>Indicador de grabación de voz</em> </div>
 
 ## Estructura del Proyecto
-```
+
+```text
 ChatBot/
 ├── conversations/
 ├── data/
-│   ├── emotion_dataset.csv
+│   └── emotion_dataset.csv
 ├── models/
 │   ├── bert_emotion_model/
-│       ├── checkpoint-1600
-│       ├── checkpoint-1650
-│       ├── config.json
-│       ├── model.safetensors
-│       ├── special_tokens_map.json
-│       ├── tokenizer.json
-│       ├── tokenizer_config.json
-│       ├── training_args.bin
-│       ├── vocab.txt
+│   │   ├── checkpoint-1600
+│   │   ├── checkpoint-1650
+│   │   ├── config.json
+│   │   ├── model.safetensors
+│   │   ├── special_tokens_map.json
+│   │   ├── tokenizer.json
+│   │   ├── tokenizer_config.json
+│   │   ├── training_args.bin
+│   │   └── vocab.txt
 │   ├── chatbot_model.py
-│   ├── responses.json
+│   └── responses.json
 ├── static/
 │   ├── audio/
 │   ├── css/
-│   │   ├── styles.css
+│   │   └── styles.css
 │   ├── img/
-│   ├── js/
-│       ├── scripts.js
+│   └── js/
+│       └── scripts.js
 ├── templates/
 │   ├── chatbot.html
-│   ├── index.html
+│   └── index.html
 ├── app.py
 ├── chatbot.log
 ├── error.log
 ├── requirements.txt
-├── train_model.py
+└── train_model.py
 ```
 
 ## Instalación y Configuración
+
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/tu-usuario/ChatBot-Clean.git
-cd ChatBot-Clean
+git clone https://github.com/tu-usuario/ChatBot-MentalHealth.git
+cd ChatBot-MentalHealth
 ```
 
 ### 2. Crear un entorno virtual y activarlo
@@ -95,17 +123,47 @@ pip install -r requirements.txt
 ```bash
 python app.py
 ```
+La aplicación se ejecutará en [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
-La aplicación se ejecutará en `http://127.0.0.1:5000/`.
+## Ejemplo de Código Interesante (`train_model.py`)
+
+```python
+class CustomTrainer(Trainer):
+    def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
+        labels = inputs.get("labels").to(model.device)
+        outputs = model(**inputs)
+        logits = outputs.get("logits")
+        loss = custom_loss(labels, logits)  # Pérdida con class_weights
+        return (loss, outputs) if return_outputs else loss
+
+def custom_loss(labels, logits):
+    loss_fct = torch.nn.CrossEntropyLoss(weight=class_weights)
+    return loss_fct(logits, labels)
+```
+
+De esta forma, cada emoción recibe un peso distinto, mitigando el riesgo de que el modelo ignore las clases menos representadas.
 
 ## Flujo de Uso de los Archivos en el Proyecto
-1. **Cargar el Modelo**: Se utilizan los pesos del modelo almacenados en `model.safetensors` junto con `config.json` para definir la estructura.
-2. **Tokenización**: Se convierten las entradas de texto en tokens que BERT puede procesar usando `tokenizer.json` y `vocab.txt`.
-3. **Inferencia**: Se analiza el mensaje del usuario, se predice la emoción y se genera una respuesta en base al dataset `emotion_dataset.csv`.
+
+1. **Cargar el Modelo**: Los pesos del modelo están en `model.safetensors` junto con `config.json`, `tokenizer.json`, etc.
+2. **Tokenización**: Se convierte la entrada (texto) en tokens con el tokenizer de BERT (`tokenizer.json`, `vocab.txt`).
+3. **Inferencia**: El texto del usuario se procesa con BERT para predecir la emoción y generar una respuesta.
+4. **Respuesta**: Se envía el texto de vuelta al navegador y, si se activa la síntesis de voz, se genera un archivo de audio.
 
 ## Notas Finales
-- Esta versión es experimental y no sustituye asesoramiento profesional en salud mental.
-- Se recomienda seguir desarrollando y refinando el modelo para mejorar su precisión y amplitud de respuestas.
 
-**Autor:** Nicolás Ceballos Brito  
-**Contacto:** nicolasceballosbrito@gmail.com
+- Esta versión (1.0) es experimental y **no** sustituye asesoramiento profesional en salud mental.
+- Se recomienda seguir refinando el modelo, incorporar más emociones y ampliar la base de datos.
+- En caso de emergencia o situación de riesgo, busca ayuda de un profesional de la salud mental.
+
+## Colaboradores
+- **Nicolás Ceballos Brito** (@Nico2603)
+- **Juan Alejandro Urueña Serna** (@Uruena2603)
+- **Camilo Castañeda Yepes** (@camCy)
+
+Para cualquier duda o sugerencia, contáctame en: **nicolasceballosbrito@gmail.com**
+
+---
+
+¡Gracias por probar el Chatbot de Salud Mental!  
+Si deseas contribuir, siéntete libre de hacer un **fork** y enviar tus **pull requests**.
