@@ -54,13 +54,13 @@ Se utilizó un dataset de ~500 muestras para cada emoción (total ~5500 filas).
 
 # Capturas de Pantalla
 
-## Página de Inicio
+**Página de Inicio**
 <div align="center"> <img src="static/img/index.png" alt="Página de Inicio" width="1000"> <br> <em>Página de inicio del Chatbot de Salud Mental</em> </div>
 
-## Interfaz del Chatbot
+**Interfaz del Chatbot**
 <div align="center"> <img src="static/img/chatbot1.png" alt="Interfaz del Chatbot" width="1000"> <br> <em>Interfaz del Chatbot</em> </div>
 
-## Reconocimiento de Voz Activado
+**Reconocimiento de Voz Activado**
 <div align="center"> <img src="static/img/chatbot2.png" alt="Reconocimiento de Voz Activado" width="1000"> <br> <em>Indicador de grabación de voz</em> </div>
 
 ## Estructura del Proyecto
