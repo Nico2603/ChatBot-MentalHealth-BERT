@@ -54,11 +54,11 @@ Se utilizó un dataset de ~500 muestras para cada emoción (total ~5500 filas).
 
 Capturas de Pantalla
 Página de Inicio
-<div align="center"> <img src="static/img/index.png" alt="Página de Inicio" width="500"> <br> <em>Página de inicio del Chatbot de Salud Mental</em> </div>
+<div align="center"> <img src="static/img/index.png" alt="Página de Inicio" width="1000"> <br> <em>Página de inicio del Chatbot de Salud Mental</em> </div>
 Interfaz del Chatbot
-<div align="center"> <img src="static/img/chatbot1.png" alt="Interfaz del Chatbot" width="500"> <br> <em>Interfaz del Chatbot</em> </div>
+<div align="center"> <img src="static/img/chatbot1.png" alt="Interfaz del Chatbot" width="1000"> <br> <em>Interfaz del Chatbot</em> </div>
 Reconocimiento de Voz Activado
-<div align="center"> <img src="static/img/chatbot2.png" alt="Reconocimiento de Voz Activado" width="500"> <br> <em>Indicador de grabación de voz</em> </div>
+<div align="center"> <img src="static/img/chatbot2.png" alt="Reconocimiento de Voz Activado" width="1000"> <br> <em>Indicador de grabación de voz</em> </div>
 
 ## Estructura del Proyecto
 
@@ -99,8 +99,13 @@ ChatBot/
 
 ## Instalación y Configuración
 
-### 1. Clonar el repositorio
+### 1. Clonar el repositorio con Git LFS
+Si el proyecto usa archivos grandes (como modelos BERT), asegúrate de tener Git LFS instalado antes de clonar el repositorio.
 ```bash
+# Instalar Git LFS (si no lo tienes)
+git lfs install
+
+# Clonar el repositorio
 git clone https://github.com/tu-usuario/ChatBot-MentalHealth.git
 cd ChatBot-MentalHealth
 ```
@@ -125,7 +130,7 @@ python app.py
 ```
 La aplicación se ejecutará en [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
-## Ejemplo de Código Interesante (`train_model.py`)
+## Ejemplo de Código (`train_model.py`)
 
 ```python
 class CustomTrainer(Trainer):
