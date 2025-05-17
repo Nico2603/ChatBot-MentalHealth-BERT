@@ -179,7 +179,7 @@ De esta forma, cada emoción recibe un peso distinto, mitigando el riesgo de que
 - **Camilo Castañeda Yepes** (@camCy) https://github.com/camCy
 
 Para cualquier duda o sugerencia, contáctame en: **nicolasceballosbrito@gmail.com**
-:D
+:)
 ---
 
 ¡Gracias por probar el Chatbot de Salud Mental!  
